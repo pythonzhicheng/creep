@@ -1,0 +1,347 @@
+1126班级作业情况
+Day01：
+作业：
+1、股吧，热门搜索，必须要可以翻页的
+url: http://so.eastmoney.com/web/s?keyword=%E5%B7%A5%E4%B8%9A%E5%A4%A7%E9%BA%BB&pageindex=25
+爬取网页，分页爬取，存储在一个文件夹里面
+
+2、高得地图的所有城市的天气数据爬取
+（1）获取所有城市的adcode
+（2）拼接url，进行天气数据的获取
+
+格式：
+[{"city": "beijing", "weather": "小雨"}, {"city": "beijing", "weather": "小雨"},...]
+循环打印出来
+
+3、代码敲两遍
+
+Day02：
+作业
+1、放到一个文件夹里面，用名字命名
+2、完善猫眼电影的爬取，注意图片需要大图，评分，上映日期，排名
+{"name": "绿皮书"， }
+3、房王：http://gz.ihk.cn/myxf/houselist/?mark=gzxf089
+图片，名称，描述，主力户型，地址，价格，打折信息，标签
+{"name": "万科。。。"， }
+4、选做，华夏基金：http://fund.chinaamc.com/portal/cn/include/newproducthome.jsp
+基金简称，等等
+
+Day03：
+作业：
+房天下：https://esf.fang.com/
+
+房产必须抓取
+房产网站：
+安居客：https://bj.zu.anjuke.com/
+字段：图片，标题，室(数字)，厅(数字)，面积，楼层，总楼层，经纪人，小区名，城区，商圈，地址
+租房方式，朝向，地铁线，价格。
+
+车和医疗数据二选一
+车：
+瓜子：https://www.guazi.com/bj/buy/
+抓取50页的数据
+字段名：价格，描述，年限，公里数，图片
+
+医疗：
+药品：https://www.111.com.cn/categories/953710?tp=10-1
+抓取50页
+字段：价格，描述，店名，评论数量
+插入mysql数据库
+insert into yaoping (price,desc,name,commend_num) values ("11", "好药"，"自营"，"110")
+
+网站：url
+抓取字段：
+。。。。
+抓取要求：例如：单位需不需要等。
+
+抓取时间：
+抓取的频次，定时爬取任务。
+
+监控：网站改了样式，通知监控人间监控数据。
+
+Day04：
+类型:车
+瓜子网：https://www.guazi.com/bj/buy/  （需要加请求头）
+城市接口：https://www.guazi.com/bj/?act=ajaxGetOpenCity  （需要加请求头）
+
+优信二手车：https://www.xin.com/beijing/s/
+城市接口：https://www.xin.com/apis/Ajax_common/get_home_city/?
+遍历城市接口，获取所有的城市信息
+字段：标题，价格，公里数，仓库，年限，图片，认证，首付信息
+存入数据库，mysql
+
+毛豆新车网：https://www.maodou.com/car/list/all/pg1?keyword=
+抓取字段：价格，图片，标题，月供
+解决问题：翻页
+
+类型：房
+房天下：https://esf.fang.com/
+
+我爱我家：https://bj.5i5j.com/ershoufang/  需要加cookie
+
+作业：
+1、git所有命令进行背诵，然后第二天听写。
+
+Day05：
+链家：https://bj.fang.lianjia.com/loupan/
+1、获取所有的城市的拼音
+2、根据拼音去拼接url，获取所有的数据。
+3、列表页：图片，楼盘名称，均价，建筑面积，区域，商圈
+详情页：户型（["8室5厅8卫", "4室2厅3卫", "5室2厅2卫"]）,朝向，图片（列表），用户点评（选爬）
+
+项目地址：通燕高速耿庄桥北出口中化石油对面
+售楼处地址：通燕高速北侧耿庄桥出口北500米潞苑南大街（接待时间 9:00 - 18:00）
+开发商：石榴置业集团股份有限公司
+物业公司：浙江省绿城物业服务有限公司
+最新开盘：2018.01.20 转成时间戳
+物业类型：别墅
+交房时间：2016年05月10日 转成2016-05-10
+容积率：1.20
+产权年限：70年
+绿化率：30%
+规划户数：173
+物业费用：6.91~7.13元/m2/月（不要后面的：元/m2/月）
+车位情况：地下车位数584（只要数字）
+供暖方式：集中供暖
+供水方式：民水
+供电方式：民电
+建筑类型：板楼
+嫌恶设施：暂无
+占地面积：39,600㎡（不要单位）
+建筑面积：40,000㎡（不要单位）
+
+Day06：
+作业：
+1、链家的脚本敲两遍
+2、将数据入库mysql，这个数据以后要用到
+3、瓜子：https://www.guazi.com/bj/audi/
+（1）抓取城市所有的url，入库redis
+（2）抓取北京所有的车源数据 先抓取所有的品牌，根据品牌获取所有车辆信息
+抓取字段：图片，详情url（列表，单独入库（mysql）
+标题，价格，上牌时间，详情url
+
+Day07：
+作业：
+1、把今天的代码敲一遍
+2、将以前的作业补全
+3、将链家的项目敲一遍（day06/02.lianjia.py）
+
+4、报告：
+报告分析：
+
+房产项目：
+需求分析：抓取的字段，抓取字段的格式，抓取存储的地方。
+要求：抓取全。数据库的命名，数据表的命名，以及表之间的关系，字段命名。
+形成抓取的效果分析（抓取的数量的占比，稳定性分析）
+
+抓取的策略分析：抓取的流程。
+抓取的问题分析：抓取的遇到的问题，（比如：经纪人的电话抓取，还有空值处理之类的）
+抓取的问题解决方案：（最重要的事情）
+
+包装成一个团队：你要担任当中的什么角色。
+注意：不要写一个链家，可以写多个房产公司，房天下，安居客，我爱我家，自如等等。
+
+
+车：类似于房产项目。
+车和房产二选一
+
+内容和形式：word，单独完成。
+
+参考github：https://github.com/facert/awesome-spider
+
+Day08：
+scrapy框架书写顺序：
+
+总结：
+第一步：创建项目，scrapy startproject name（项目名称）
+第二步：生成一个爬虫， scrapy genspider name（爬虫名称）"zhipin.com" (域名)
+第三步：定义起始url，
+第四步：书写parse函数，解析起始url返回的响应
+第五步：设置settings，
+（1）ROBOTSTXT_OBEY = False 改成false
+第六步：爬取详情信息，书写parse_detail函数。返回item给pipeline，到第九步
+第七步：写书分页逻辑，调用parse本身
+第八步：执行启动爬虫，书写main.py
+第九步：打开设置中的ITEM_PIPELINES
+第十步：书写pipeline里面的逻辑，存入数据库
+第十一步：建立数据表
+最后：执行main.py文件 进行数据入库
+
+作业：
+1、集成链家到scrapy中，完整走一遍流程（链家入库）
+2、集成瓜子到scrapy中
+3、吴浩，陈泽远，林永奇，甘霖的报告。
+
+Day09：
+作业：
+https://search.suning.com/%E7%94%B5%E8%84%91/
+
+1、列表页字段：标题，价格，列表页图片，详情url
+2、详情页字段：评价数量，详情页图片
+3、翻页，抓取完整
+4、存入mongo数据库
+
+Day10：
+作业：
+1、苏宁易购 的项目，总结出问题，以及解决方案
+2、根据课件，mongo的其他操作使用python语法实现（交）
+3、下厨房：http://www.xiachufang.com/
+分类：http://www.xiachufang.com/category/
+爬取所有分类的url，名称
+分类字段：分类名称，分类url
+分页策略：获取下一页的url，进行分页直到最后一页，最后一页没有href
+列表页字段：菜名，评分，发布人昵称
+详情页字段：详情url，用料，{"yongliao"：{"xianggu": "jiuo", "xiaoyoucai": "shiliang"}}
+标题图片1，做法图片(是一个列表，没有图片给一个空列表)
+做菜人数，描述，做菜做法（{"usge": ["1、xxx"， "2.xxx", "3.xxx"]}），
+小贴士
+使用scrapy，存入mongo库
+{
+    "分类名称": ""
+    "分类url": ""
+    "yongliao"：{"xianggu": "jiuo", "xiaoyoucai": "shiliang"},
+    "usge": ["1、xxx"， "2.xxx", "3.xxx"],
+    "xiaotieshi": "xxx",
+    "pic1": "xxx"
+    "pic2": ["xxx", "xxx"]
+}
+
+Day11：
+作业:
+1、Tornado完整的敲一遍
+2、赶集网：http://bj.ganji.com/chongwu/
+列表页信息：图片，详情url，性别，年龄，地区，价格
+详情页：电话，姓名，犬种，体型，英文名，身高，体重，寿命，分组，存入redis，类型是hash值
+
+3、redis所有命令使用Python完成
+
+Day12：
+作业
+1、百度旅游：https://lvyou.baidu.com/plan/counselor
+爬取所有城市目的地信息
+列表页：标题，行程天数，复制数，浏览数，昵称，图片
+详情页：第一天，地址，景区（列表）
+
+dict1 = [
+    {
+        "title": "东京4日游",
+        "addr": "东京",
+        "day_count": 2,
+        "copy_count": 126,
+        "scan": 2352
+    },
+    {
+        "day01": {
+            "青岛": {
+                "龙塔": {
+                    "游玩时间": "2-3个小时",
+                    "评论": 101
+                },
+                "防洪纪念塔": {
+                    "游玩时间": "1-2个小时",
+                    "评论": 1001
+                }
+            }
+        },
+        "day02": {
+            "琴岛": {
+                "太阳岛": {
+                    "游玩时间": "2-3个小时",
+                    "评论": 1001
+                },
+                "东北虎林园": {
+                    "游玩时间": "2-3个小时",
+                    "评论": 1001
+                }
+            }
+        }
+    }
+]
+
+
+2、蘑菇街：https://list.mogujie.com/book/clothing
+
+抓取字段：列表页抓取两个字段，详情页抓取两个字段。
+callback: jQuery21103338362930819825_1554294935217
+_version: 8193
+ratio: 3:4
+cKey: 15
+page: 1
+sort: pop
+ad: 0
+fcid:
+action: clothing
+_: 1554294935218
+
+
+callback: jQuery21103338362930819825_1554294935217
+_version: 8193
+ratio: 3:4
+cKey: 15
+page: 2
+sort: pop
+ad: 0
+fcid:
+action: clothing
+_: 1554294935219
+
+callback: jQuery21103338362930819825_1554294935217
+_version: 8193
+ratio: 3:4
+cKey: 15
+page: 3
+sort: pop
+ad: 0
+fcid:
+action: clothing
+_: 1554294935220
+
+
+callback: jQuery21103338362930819825_1554294935217
+_version: 8193
+ratio: 3:4
+cKey: 15
+page: 4
+sort: pop
+ad: 0
+fcid:
+action: clothing
+_: 1554294935221
+
+callback: jQuery21106996184867239976_1554295827351
+_version: 8193
+ratio: 3:4
+cKey: 15
+page: 1
+sort: pop
+ad: 0
+fcid:
+action: skirt
+ptp: 1.y81az.0.0.PmlsE1qx
+_: 1554295827352
+
+callback: jQuery21104456020517290529_1554296637620
+_version: 8193
+ratio: 3:4
+cKey: 15
+page: 1
+sort: pop
+ad: 0
+fcid:
+action: trousers
+ptp: 1.TGbiC.0.0.BCotftUR
+_: 1554296637621
+
+Day13：
+作业：
+1、经典案例：敲一遍，瓜子，链家
+2、笔试题，复习一下，背诵
+3、git命令默写
+4、课件复习
+
+Day14：
+作业
+1、go语言变量，每一节放在一个脚本里面，三个脚本
+2、复习
+'谋事在人，成事在天，但行好事，莫问前程'
+
